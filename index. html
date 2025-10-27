@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aris Wolom — Profile</title>
+  <meta name="description" content="Profil Aris Wolom — Web developer & kreativ. Responsive single-file website." />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#6ee7b7; --glass: rgba(255,255,255,0.04);
+      --max-w:1100px; --radius:14px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,#061021 0%,var(--bg) 100%); color:#e6eef6; -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale; padding:24px; display:flex; justify-content:center;
+    }
+    .wrap{width:100%;max-width:var(--max-w)}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .avatar{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:grid;place-items:center;font-weight:700;color:#052024}
+    .name{font-size:18px;font-weight:600}
+    nav{display:flex;gap:12px;align-items:center}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
+    .cta{background:linear-gradient(90deg,#34d399,#60a5fa);color:#052024;border:none}
+
+    main{display:grid;grid-template-columns:1fr 360px;gap:22px}
+    @media (max-width:880px){main{grid-template-columns:1fr} .right{order:2}}
+
+    /* left */
+    .card{background:linear-gradient(180deg,var(--card), rgba(6,12,20,0.6));border-radius:var(--radius);padding:22px;box-shadow:0 6px 30px rgba(2,6,12,0.6);}
+    h1{margin:0 0 8px 0;font-size:26px}
+    p.lead{margin:0;color:var(--muted)}
+
+    .meta{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+    .meta .chip{background:var(--glass);padding:8px 10px;border-radius:10px;color:var(--muted);font-weight:600}
+
+    .section{margin-top:18px}
+    .skills{display:flex;gap:10px;flex-wrap:wrap}
+    .skill{padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.03);font-weight:600}
+
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    @media (max-width:640px){.projects{grid-template-columns:1fr}}
+    .proj{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:10px}
+    .proj h4{margin:0 0 6px 0}
+    .proj p{margin:0;color:var(--muted);font-size:14px}
+
+    /* right */
+    .right{position:sticky;top:24px;height:max-content}
+    .contact-list{display:flex;flex-direction:column;gap:10px}
+    .contact{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:rgba(255,255,255,0.02)}
+    .contact a{color:var(--accent);text-decoration:none;font-weight:600}
+
+    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:14px}
+
+    /* utilities */
+    .row{display:flex;gap:12px;align-items:center}
+    .muted{color:var(--muted)}
+
+    /* mobile top controls */
+    .mobile-menu{display:none}
+    @media (max-width:640px){nav{display:none}.mobile-menu{display:block}}
+
+    /* small touches */
+    .divider{height:1px;background:rgba(255,255,255,0.03);margin:14px 0;border-radius:2px}
+
+    /* focus-visible */
+    a:focus,button:focus{outline:3px solid rgba(110,231,183,0.18);outline-offset:2px}
+  </style>
+</head>
+<body>
+  <div class="wrap" id="app">
+    <header>
+      <div class="brand">
+        <div class="avatar" aria-hidden>AW</div>
+        <div>
+          <div class="name">Aris Wolom</div>
+          <div class="muted" style="font-size:13px">Web Developer • UI/UX • Problem Solver</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:10px">
+        <nav aria-label="Situs"> 
+          <button class="btn" onclick="scrollToSection('about')">About</button>
+          <button class="btn" onclick="scrollToSection('projects')">Projects</button>
+          <button class="btn" onclick="scrollToSection('contact')">Contact</button>
+          <button class="btn cta" id="downloadBtn" onclick="downloadVCard()">Download vCard</button>
+        </nav>
+        <div class="mobile-menu">
+          <button class="btn" onclick="toggleMobileMenu()">Menu</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <article class="card" id="about">
+          <h1>Halo, saya Aris Wolom 👋</h1>
+          <p class="lead">Saya membuat website responsif, UI yang bersih, dan pengalaman pengguna yang intuitif. Saya suka memecahkan masalah dengan kode serta berkolaborasi untuk membangun produk yang berguna.</p>
+
+          <div class="meta">
+            <div class="chip">📍 Indonesia</div>
+            <div class="chip">💼 Freelance / Remote</div>
+            <div class="chip">✉️ aris@example.com</div>
+          </div>
+
+          <div class="section">
+            <h3 style="margin:0 0 8px 0">Keahlian</h3>
+            <div class="skills">
+              <div class="skill">HTML</div>
+              <div class="skill">CSS / Responsive</div>
+              <div class="skill">JavaScript</div>
+              <div class="skill">React (optional)</div>
+              <div class="skill">UI/UX</div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3 style="margin:0 0 8px 0">Tentang singkat</h3>
+            <p class="muted">Saya fokus membuat antarmuka yang cepat dan aksesibel. Selain pengembangan front-end, saya juga tertarik pada desain produk dan optimasi performa.</p>
+
+            <div class="divider"></div>
+
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+              <a class="btn" href="#projects" onclick="scrollToSection('projects')">Lihat proyek</a>
+              <button class="btn" onclick="toggleTheme()">Toggle Tema</button>
+            </div>
+          </div>
+
+          <div class="section" id="projects">
+            <h3 style="margin:0 0 12px 0">Proyek Pilihan</h3>
+            <div class="projects">
+              <div class="proj">
+                <h4>Portfolio Website</h4>
+                <p>Membangun website portofolio responsif, animasi ringan, dan aksesibilitas fokus.</p>
+              </div>
+              <div class="proj">
+                <h4>Aplikasi Task</h4>
+                <p>Single-page app untuk manajemen tugas dengan localStorage dan sync sederhana.</p>
+              </div>
+              <div class="proj">
+                <div class="proj">
+                  <h4>Landing Page</h4>
+                  <p>Desain landing page konversi tinggi untuk kampanye produk digital.</p>
+                </div>
+              </div>
+              <div class="proj">
+                <h4>Prototype UI</h4>
+                <p>Prototype interaktif untuk aplikasi mobile menggunakan Figma/HTML.</p>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <footer class="muted">© <span id="year"></span> Aris Wolom · Dibuat dengan ❤️</footer>
+      </section>
+
+      <aside class="right">
+        <div class="card">
+          <h3 style="margin-top:0">Kontak</h3>
+          <div class="contact-list" id="contact">
+            <div class="contact"><span class="muted">Email</span><a href="mailto:aris@example.com">aris@example.com</a></div>
+            <div class="contact"><span class="muted">Telepon</span><a href="tel:+628123456789">+62 812-3456-789</a></div>
+            <div class="contact"><span class="muted">LinkedIn</span><a href="https://www.linkedin.com/">/in/aris-wolom</a></div>
+            <div class="contact"><span class="muted">GitHub</span><a href="https://github.com/">@ariswolom</a></div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div>
+            <h4 style="margin:0 0 8px 0">Availability</h4>
+            <p class="muted" style="margin:0">Bisa dihubungi untuk proyek freelance, kolaborasi, dan konsultasi produk.</p>
+          </div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="card">
+          <h4 style="margin:0 0 8px 0">Quick Links</h4>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+            <a class="btn" href="#about" onclick="scrollToSection('about')">About</a>
+            <a class="btn" href="#projects" onclick="scrollToSection('projects')">Projects</a>
+            <a class="btn" href="#contact" onclick="scrollToSection('contact')">Contact</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    // small interactive helpers
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(!el) return; el.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    // theme toggle (light/dark)
+    const root = document.documentElement;
+    function toggleTheme(){
+      const current = root.getAttribute('data-theme');
+      if(current === 'light'){
+        root.removeAttribute('data-theme');
+        localStorage.setItem('aris_theme','dark');
+      } else {
+        root.setAttribute('data-theme','light');
+        localStorage.setItem('aris_theme','light');
+      }
+      applyTheme();
+    }
+    function applyTheme(){
+      const t = localStorage.getItem('aris_theme');
+      if(t === 'light'){
+        root.style.setProperty('--bg','#f7fbff');
+        root.style.setProperty('--card','#ffffff');
+        root.style.setProperty('--muted','#586674');
+        root.style.setProperty('--accent','#06b6d4');
+        document.body.style.color='#042029';
+      } else {
+        root.style.removeProperty('--bg');
+        root.style.removeProperty('--card');
+        root.style.removeProperty('--muted');
+        root.style.removeProperty('--accent');
+        document.body.style.color='';
+      }
+    }
+    applyTheme();
+
+    // mobile menu simple
+    function toggleMobileMenu(){
+      const nav = document.querySelector('nav');
+      if(nav.style.display === 'flex') nav.style.display = '';
+      else nav.style.display = 'flex';
+    }
+
+    // download simple vCard file
+    function downloadVCard(){
+      const vcard = [`BEGIN:VCARD`,`VERSION:3.0`,`FN:Aris Wolom`,`EMAIL:aris@example.com`,`TEL:+628123456789`,`END:VCARD`].join('\n');
+      const blob = new Blob([vcard],{type:'text/vcard'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'aris-wolom.vcf'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    }
+
+    // accessibility: keyboard shortcuts
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'k' && (e.ctrlKey||e.metaKey)){
+        e.preventDefault(); document.getElementById('downloadBtn').focus();
+      }
+    });
+  </script>
+</body>
+</html>
